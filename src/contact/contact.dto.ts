@@ -11,7 +11,7 @@ export class CreateContactDto {
   email: string;
 
   @IsNotEmpty({ message: 'phoneNumber is a required field' })
-  @Length(8)
+  // @Length(8)
   @IsInt()
   phoneNumber: number;
 }

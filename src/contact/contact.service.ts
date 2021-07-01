@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { CreateContactDto } from './contact.dto';
 
 import { ContactInterface } from './contact.interface';
 import { Contact, ContactDocument } from './contact.model';
@@ -11,7 +12,7 @@ export class ContactService {
     @InjectModel(Contact.name) private contactModel: Model<ContactDocument>,
   ) {}
 
-  async create(contact: ContactInterface) {
+  async create(contact: CreateContactDto): Promise<ContactInterface> {
     try {
       return await this.contactModel.create(contact);
     } catch (error) {
