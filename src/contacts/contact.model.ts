@@ -5,13 +5,13 @@ export type ContactDocument = Contact & Document;
 
 @Schema()
 export class Contact {
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   name: string;
 
-  @Prop({ required: true })
+  @Prop()
   email: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   phoneNumber: number;
 }
 

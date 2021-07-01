@@ -48,6 +48,22 @@ export class ContactService {
     }
   }
 
+  async findByPhoneNumber(phoneNumber: number): Promise<ContactInterface> {
+    try {
+      return await this.contactModel.findOne({ phoneNumber });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async findByEmail(email: string): Promise<ContactInterface> {
+    try {
+      return await this.contactModel.findOne({ email });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async findByIdAndDelete(id: string): Promise<ContactInterface> {
     try {
       return await this.contactModel.findByIdAndDelete(id);
